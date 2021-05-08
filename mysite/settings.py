@@ -29,7 +29,7 @@ SECRET_KEY = '7^vo#8iqow+u*awf!*&bsnd&twg54!b!w6)v9zdh+)_)&*$lu$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 
 """
 Cuando DEBUG es True y ALLOWED_HOST esta vacío, el host es validado contra ['localhost', '127,0.0.1', '[::1]']. Una vez despleguemos 
