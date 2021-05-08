@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 # proteger keys
 import os
-"""from dotenv import load_dotenv
-load_dotenv() """
 
 from decouple import config
 
@@ -25,9 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
-SECRET_KEY = config("SECRET_KEY")
+SECRET_KEY = '7^vo#8iqow+u*awf!*&bsnd&twg54!b!w6)v9zdh+)_)&*$lu$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
