@@ -17,6 +17,16 @@
             <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
         </div></article>
 
+        {% for p in posts %}
+
+            <article><div>
+            <p>{{p.published_date}}</p>
+            <h2><a href="">{{p.title}} </a></h2>
+            <p>{{p.text|linebreaksbr}}</p> 
+        </div></article>
+        
+        {% endfor %}
+
     </section>
 </body>
 </html>
