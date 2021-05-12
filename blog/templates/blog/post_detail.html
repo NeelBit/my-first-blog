@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+
+    {% block content %}
+
+        <div class="section col s12 orange">
+            
+            {% if post.published_date %} 
+                <p>{{post.published_date}}</p>
+            {% else %} 
+                <p> Sin fecha de publicación :( </p>
+            {% endif %}
+
+            <h2 class="hoverable"><a href="{% url 'post_detail' pk=post.pk %}"> {{post.title}} </a></h2>
+            <p class="flow-text">{{post.text|linebreaksbr}}</p> 
+        </div>
+    {% endblock %}
