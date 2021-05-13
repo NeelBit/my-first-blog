@@ -2,7 +2,7 @@
 
     {% block content %}
 
-        <div class="section col s12 orange">
+        <div class="section col s12 orange" style="border-radius: 10px;">
             
             {% if post.published_date %} 
                 <p>{{post.published_date}}</p>
@@ -10,7 +10,13 @@
                 <p> Sin fecha de publicación :( </p>
             {% endif %}
 
-            <h2 class="hoverable"><a href="{% url 'post_detail' pk=post.pk %}"> {{post.title}} </a></h2>
+            <h2 class="hoverable"><a href="{% url 'post_detail' pk=post.pk %}"> {{post.title}} </a>
+
+                {% if user.is_authenticated %}
+                    <a href="{% url 'post_edit' pk=post.pk %}" class="btn-floating btn-large waves-effect waves-light red accent-4 right"><i class="material-icons">mode_edit</i></a>
+                {% endif %}
+
+            </h2>
             <p class="flow-text">{{post.text|linebreaksbr}}</p> 
         </div>
     {% endblock %}

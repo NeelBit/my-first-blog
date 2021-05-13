@@ -16,11 +16,34 @@
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 
 </head>
-<body>
+<body class="orange accent-4">
     
-    <div class="center-align hoverable">
-        <header><div> <h1><a href="{% url 'post_list' %}">Primer Blog (django-girls)</a></h1> </div></header>
-    </div>
+
+    <nav class="nav-extended orange darken-4">
+        <div class="nav-wrapper">
+            
+            <div class="center-align hoverable">
+
+                <header><div>
+
+                    <h1><a href="{% url 'post_list' %}">Primer Blog (django-girls)</a></h1> 
+                    
+                    {% if user.is_authenticated %}
+                        <div class="nav-content">
+                            <a href="{% url 'post_new' %}" class="btn-floating btn-large halfway-fab waves-effect waves-light red accent-4 right">
+                                <i class="material-icons">add</i>
+                            </a>
+                        </div>
+                    {% endif %}
+
+                </div></header>
+            
+            </div>
+
+
+
+        </div>
+    </nav>
 
     <div class="container">
     <section>
