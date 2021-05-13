@@ -1,4 +1,29 @@
-/*body{
-    background-color: chocolate;
+label{
+    margin: 5px 5px;
+    color: black;
+    background-color: transparent;
+    font-size: 2rem;
 }
-*/
+
+#id_title, #id_text{
+    background-color: whitesmoke;
+    color: black;
+    border-radius: 10px;
+
+}
+
+#id_text{
+    height: 300px;
+}
+
+#formulario{
+    border: 2px black solid;
+    border-radius: 10px;
+}
+
+#btn_enviar{
+    display: block;
+    margin: 0px auto;
+    width: 30%;
+    border-radius: 10px;
+}
