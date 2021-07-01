@@ -18,10 +18,10 @@
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 
 </head>
-<body class="orange accent-4">
+<body class="teal lighten-4">
     
 
-    <nav class="nav-extended orange darken-4">
+    <nav class="nav-extended indigo darken-4">
         <div class="nav-wrapper">
             
             <div class="center-align hoverable">
@@ -32,7 +32,7 @@
                     
                     {% if user.is_authenticated %}
                         <div class="nav-content">
-                            <a href="{% url 'post_new' %}" class="btn-floating btn-large halfway-fab waves-effect waves-light red accent-4 right">
+                            <a href="{% url 'post_new' %}" class="btn-floating btn-large halfway-fab waves-effect waves-light right">
                                 <i class="material-icons">add</i>
                             </a>
                         </div>

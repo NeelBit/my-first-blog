@@ -5,7 +5,7 @@
         {% for p in posts %}
 
             <article>
-                <div class="section col s12 orange">
+                <div class="section col s12 indigo lighten-5">
                     
                     {% if p.published_date %} 
                         <p>{{p.published_date}}</p>
@@ -15,10 +15,14 @@
 
                     <h2 class="hoverable"><a href="{% url 'post_detail' pk=p.pk %}"> {{p.title}} </a></h2>
                     <p class="flow-text">{{p.text|linebreaksbr}}</p> 
+                    
+                    <a class="btn right waves-effect" href="{% url 'post_detail' pk=p.pk %}">Comments: {{ p.approved_comments.count }}</a>
 
-                    <div class="divider"></div>
+
                 </div>
             </article>
+            
+            <div class="row col s12 divider black"></div>
 
         {% endfor %}
 
