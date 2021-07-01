@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 # proteger keys
-#import os
+import os
 
 #from decouple import config
 
