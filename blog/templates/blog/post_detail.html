@@ -13,7 +13,7 @@
             <h2 class="hoverable"><a href="{% url 'post_detail' pk=post.pk %}"> {{post.title}} </a>
 
                 {% if user.is_authenticated %}
-                    <a href="{% url 'post_edit' pk=post.pk %}" class="btn-floating btn-large waves-effect waves-light right"><i class="material-icons">mode_edit</i></a>
+                    <a href="{% url 'post_edit' pk=post.pk %}" class="btn-floating btn-large waves-effect waves-light right tooltipped" data-tooltip="Editar post"><i class="material-icons">mode_edit</i></a>
                 {% endif %}
 
             </h2>
@@ -35,7 +35,6 @@
                                         <a class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}"> <i class="material-icons prefix">delete</i></a>
                                         <a class="btn btn-default" href="{% url 'comment_approve' pk=comment.pk %}"> <i class="material-icons prefix">done</i></a>
                                     </div>
-                                    
                                 {% endif %}
                                 <strong> <span class="flow-text blue lighten-5">{{ comment.author }}</span></strong>
                                 <p>{{ comment.text|linebreaks }}</p>

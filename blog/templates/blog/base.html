@@ -17,6 +17,15 @@
     
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 
+    <script>
+
+        $(document).ready(function(){
+            $('.tooltipped').tooltip({delay: 50});
+
+        });
+
+    </script>
+
 </head>
 <body class="teal lighten-4">
     
@@ -32,9 +41,12 @@
                     
                     {% if user.is_authenticated %}
                         <div class="nav-content">
-                            <a href="{% url 'post_new' %}" class="btn-floating btn-large halfway-fab waves-effect waves-light right">
-                                <i class="material-icons">add</i>
-                            </a>
+
+                            {% comment %} borradores {% endcomment %}
+                            <a href="{% url 'post_draft_list' %}" class="btn-large waves-effect waves-light right tooltipped" data-tooltip="Borradores"><i class="material-icons">drafts</i></a>
+
+                            {% comment %} nuevo post {% endcomment %}
+                            <a href="{% url 'post_new' %}" class=" btn-large waves-effect waves-light right tooltipped" data-tooltip="Agregar post"><i class="material-icons">add</i></a>
                         </div>
                     {% endif %}
 
