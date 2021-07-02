@@ -2,13 +2,19 @@
 
 {% block content %}
     {% for post in posts %}
-        <div class="divider black col s12"></div>
-        <div class="post section col s12 indigo lighten-5">
-            <p class="date">created: {{ post.created_date|date:'d-m-Y' }}</p>
-            <div class="div hoverable"><h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1></div>
-            
-            <p>{{ post.text|truncatechars:200 }}</p>
-        </div>
+
+        <article>
+            <div class="section col s12 indigo lighten-5" style="border-radius: 10px">
+
+                <div class="post section col s12 indigo lighten-5">
+                    <p class="date">created: {{ post.created_date|date:'d-m-Y' }}</p>
+                    <div class="div hoverable" style="border-radius: 10px"><h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2></div>
+                    
+                    <p>{{ post.text|truncatechars:200 }}</p>
+                </div>
+            </div>
+        </article>
+        <div class="row col s10 offset-s1 divider"></div>
         
     {% endfor %}
 {% endblock %}

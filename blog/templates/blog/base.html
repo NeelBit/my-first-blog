@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/materialize-icons.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/materialize.min.css' %}">
     
-	<script type="text/javascript" src="{% static 'js/jquery-1.12.1.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
     
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
@@ -22,6 +22,18 @@
         $(document).ready(function(){
             $('.tooltipped').tooltip({delay: 50});
 
+            $('.dropdown-trigger').dropdown({
+                inDuration: 50,
+                outDuration: 600,
+                constrainWidth: false, // Does not change width of dropdown to that of the activator. true para que ocupe todo el tamaño del btn
+                hover: true, // Activate on hover
+                gutter: -30, // Spacing from edge
+                belowOrigin: true, // Displays dropdown below the button. true que la lista aparezca abajo del btn
+                alignment: 'left', // Displays dropdown with edge aligned to the left of button. por defecto left
+                stopPropagation: false // Stops event propagation
+                
+            });
+
         });
 
     </script>
@@ -29,56 +41,71 @@
 </head>
 <body class="teal lighten-4">
     
+    <nav class="navbar-fixed hoverable light-blue darken-2">
 
-    <nav class="nav-extended light-blue darken-2">
-        <div class="nav-wrapper">
-            
-            <div class="center-align hoverable">
+        <div class="nav-content hoverable light-blue darken-2 center">
 
-                <header><div>
+            <a class="nav-title center" href="{% url 'post_list' %}"><span> Primer Blog (django-girls)</span></a>
+                
+                <div>
+                    <a class="btn btn-floating btn-large dropdown-trigger right dropdown-button" data-activates='dropdown1'>
+                        <i class="large material-icons right">account_box</i>
+                    </a>
+                </div>
 
-                    <h1><a class="nav-title" href="{% url 'post_list' %}">Primer Blog (django-girls)</a></h1> 
+            {% if user.is_authenticated %}
 
-                    {% if user.is_authenticated %}
-                        <div class="nav-content">
+                    {% comment %} borradores {% endcomment %}
+                    {% comment %} <a href="{% url 'post_draft_list' %}" style="margin: 5px" class="btn-large waves-effect waves-light right tooltipped" data-tooltip="Borradores"><i class="material-icons">drafts</i></a> {% endcomment %}
 
-                            {% comment %} borradores {% endcomment %}
-                            <a href="{% url 'post_draft_list' %}" style="margin: 5px" class="btn-large waves-effect waves-light right tooltipped" data-tooltip="Borradores"><i class="material-icons">drafts</i></a>
+                    {% comment %} nuevo post {% endcomment %}
+                    {% comment %} <a href="{% url 'post_new' %}" style="margin: 5px" class=" btn-large waves-effect waves-light right tooltipped" data-tooltip="Agregar post"><i class="material-icons">add</i></a> {% endcomment %}
 
-                            {% comment %} nuevo post {% endcomment %}
-                            <a href="{% url 'post_new' %}" style="margin: 5px" class=" btn-large waves-effect waves-light right tooltipped" data-tooltip="Agregar post"><i class="material-icons">add</i></a>
+                    {% comment %} <a href="{% url 'logout' %}" style="margin: 5px" class=" btn-large red waves-effect waves-light right tooltipped" data-tooltip="Cerrar sesión">Hello {{ user.username }} Log out <i class="material-icons left">person_outline</i> </a> {% endcomment %}
 
-                            <a href="{% url 'logout' %}" style="margin: 5px" class=" btn-large red waves-effect waves-light right tooltipped" data-tooltip="Cerrar sesión">Hello {{ user.username }} Log out <i class="material-icons left">person_outline</i> </a>
+                    <!-- probando btn - color de nav #0288d1-->
+                    <ul id='dropdown1' class='dropdown-content center center-align' style="background-color: transparent;">
+                        <li>
+                            <a href="{% url 'post_new' %}" class="btn-large btn-floating waves-effect waves-light tooltipped" data-position="left" data-tooltip="Agregar post"><i class="material-icons large">add</i></a>
+                        </li>
 
-                        </div>
-                    {% else %}
-                        <div class="nav-content">
-                            <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal tooltipped" data-tooltip="Iniciar sesión" href="{% url 'login' %}">
-                                <i class="material-icons">account_circle</i>
-                            </a>
-                        </div>
-                    {% endif %}
+                        <li>
+                            <a href="{% url 'post_draft_list' %}" class="btn-large btn-floating waves-effect waves-light tooltipped" data-position="left" data-tooltip="Borradores"><i class="material-icons large">drafts</i></a>
+                        </li>
 
-                </div></header>
-            
-            </div>
+                        <li>
+                            <a href="{% url 'logout' %}" class="btn-large btn-floating waves-effect red waves-effect waves-light tooltipped" data-position="left" data-tooltip="Cerrar sesión"><i class="material-icons large left">person_outline</i> </a>
+                        </li>
 
+                    </ul>
 
+            {% else %}
+                <ul id='dropdown1' class='dropdown-content center center-align' style="background-color: transparent;">
 
+                    <li>
+                        <a class="btn-large btn-floating waves-effect waves-light teal tooltipped" data-tooltip="Iniciar sesión" href="{% url 'login' %}">
+                            <i class="material-icons">account_circle</i>
+                        </a>
+                    </li>
+                </ul>
+
+            {% endif %}
         </div>
     </nav>
 
-    <div class="container">
-    <section>
-        
-        <div class="row"> 
+  
+    <div class="container" style="margin: 60px auto auto auto;">
 
-            {% block content %}
-            {% endblock %}
+        <section>
+            
+            <div class="row"> 
 
-        </div>
+                {% block content %}
+                {% endblock %}
 
-    </section>
+            </div>
+
+        </section>
     </div>
 
 </body>
