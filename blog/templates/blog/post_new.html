@@ -2,16 +2,16 @@
 
     {% block content %}
 
-        <h2 id="titulo_new_post">Crear/editar nuevo post</h2>
+        <h2 class="light-blue-text text-darken-4" id="titulo_new_post"> <span class="z-depth-1" style="border-radius: 10px">Crear/editar nuevo post</span></h2>
 
-        <form id="formulario" method="POST" style="border-radius: 10px;" class="flow-text text-black"> {% csrf_token %}
-            <table class="flow-text text-black">
+        <form id="formulario" method="POST" style="border-radius: 10px;" class="flow-text light-blue-text text-darken-4"> {% csrf_token %}
+            <table class="flow-text light-blue-text text-darken-4 highlight">
             
                 {{ form.as_table}}
 
             </table>
 
-            <button id="btn_enviar" class="btn waves-effect red accent-4 center-align" type="submit" name="enviar">Enviar
+            <button id="btn_enviar" class="btn waves-effect center-align" type="submit" name="enviar">Enviar
                 <i class="material-icons right">send</i>
             </button>
 

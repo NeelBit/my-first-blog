@@ -13,7 +13,7 @@
                         <p> Sin fecha de publicación :( </p>
                     {% endif %}
 
-                    <h2 class="hoverable"><a href="{% url 'post_detail' pk=p.pk %}"> {{p.title}} </a></h2>
+                    <h2 class="hoverable light-blue-text text-darken-4"><a href="{% url 'post_detail' pk=p.pk %}"> {{p.title}} </a></h2>
                     <p class="flow-text">{{p.text|linebreaksbr}}</p> 
                     
                     <a class="btn right waves-effect" href="{% url 'post_detail' pk=p.pk %}">Comments: {{ p.approved_comments.count }}</a>

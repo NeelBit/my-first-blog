@@ -30,23 +30,32 @@
 <body class="teal lighten-4">
     
 
-    <nav class="nav-extended indigo darken-4">
+    <nav class="nav-extended light-blue darken-2">
         <div class="nav-wrapper">
             
             <div class="center-align hoverable">
 
                 <header><div>
 
-                    <h1><a href="{% url 'post_list' %}">Primer Blog (django-girls)</a></h1> 
-                    
+                    <h1><a class="nav-title" href="{% url 'post_list' %}">Primer Blog (django-girls)</a></h1> 
+
                     {% if user.is_authenticated %}
                         <div class="nav-content">
 
                             {% comment %} borradores {% endcomment %}
-                            <a href="{% url 'post_draft_list' %}" class="btn-large waves-effect waves-light right tooltipped" data-tooltip="Borradores"><i class="material-icons">drafts</i></a>
+                            <a href="{% url 'post_draft_list' %}" style="margin: 5px" class="btn-large waves-effect waves-light right tooltipped" data-tooltip="Borradores"><i class="material-icons">drafts</i></a>
 
                             {% comment %} nuevo post {% endcomment %}
-                            <a href="{% url 'post_new' %}" class=" btn-large waves-effect waves-light right tooltipped" data-tooltip="Agregar post"><i class="material-icons">add</i></a>
+                            <a href="{% url 'post_new' %}" style="margin: 5px" class=" btn-large waves-effect waves-light right tooltipped" data-tooltip="Agregar post"><i class="material-icons">add</i></a>
+
+                            <a href="{% url 'logout' %}" style="margin: 5px" class=" btn-large red waves-effect waves-light right tooltipped" data-tooltip="Cerrar sesión">Hello {{ user.username }} Log out <i class="material-icons left">person_outline</i> </a>
+
+                        </div>
+                    {% else %}
+                        <div class="nav-content">
+                            <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal tooltipped" data-tooltip="Iniciar sesión" href="{% url 'login' %}">
+                                <i class="material-icons">account_circle</i>
+                            </a>
                         </div>
                     {% endif %}
 

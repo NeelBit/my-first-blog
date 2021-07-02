@@ -134,3 +134,6 @@ STATIC_URL = '/static/'
 
 # ruta para archivos estaticos
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# cuando la página es accedida directamente, la redirecionará a la página de primer nivel, el index (la página de inicio de blog)
+LOGIN_REDIRECT_URL = '/'

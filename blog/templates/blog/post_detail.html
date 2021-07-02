@@ -7,13 +7,22 @@
             {% if post.published_date %} 
                 <p>{{post.published_date}}</p>
             {% else %} 
-                <p> Sin fecha de publicación :( </p>
+                <div class="col s6">
+                    <p> Sin fecha de publicación :( </p>
+                </div>
+                
+                <div class="col s6 center">
+                    <a class="btn waves-effect tooltipped" data-tooltip="Publicar" href="{% url 'post_publish' pk=post.pk %}">Publish<i class="material-icons prefix left">publish</i></a>
+                </div>
+                
             {% endif %}
-
-            <h2 class="hoverable"><a href="{% url 'post_detail' pk=post.pk %}"> {{post.title}} </a>
+            
+            <div class="clearfix"></div>
+            <h2 class="hoverable light-blue-text text-darken-4"><a href="{% url 'post_detail' pk=post.pk %}"> {{post.title}} </a>
 
                 {% if user.is_authenticated %}
                     <a href="{% url 'post_edit' pk=post.pk %}" class="btn-floating btn-large waves-effect waves-light right tooltipped" data-tooltip="Editar post"><i class="material-icons">mode_edit</i></a>
+                    <a href="{% url 'post_remove' pk=post.pk %}" class="btn-floating btn-large waves-effect waves-light right tooltipped" data-tooltip="Eliminar post"><i class="material-icons">delete</i></a>
                 {% endif %}
 
             </h2>
@@ -48,7 +57,7 @@
                 {% endfor %}
 
                 <div class="col s4 center offset-s4">
-                    <a class="btn btn-waves-effect" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
+                    <a class="white-text waves-effect waves-light btn tooltipped" data-position="left" data-tooltip="Añadir comentario" href="{% url 'add_comment_to_post' pk=post.pk %}"><i class="material-icons prefix">insert_comment</i></a>
                 </div>
                 
 
