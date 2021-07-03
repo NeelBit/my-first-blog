@@ -2,6 +2,7 @@
 
     {% block content %}
 
+        <!-- publicación -->
         <div class="section col s12 indigo lighten-5" style="border-radius: 10px;">
             
             {% if post.published_date %} 
@@ -31,12 +32,18 @@
             <p class="flow-text">{{post.text|linebreaksbr}}</p> 
         </div>
 
+        <!-- comentarios! -->
         <div class="section">
 
-            <div class="col s10 offset-s1 indigo lighten-5" style="border-radius: 10px;">
+            <div>
+                <h3>Comentarios:</h3>
+            </div>
+
+            <div class="col s12 indigo lighten-5" style="border-radius: 10px;">
                 {% for comment in post.comments.all %}
                     {% if user.is_authenticated or comment.approved_comment %}
-                        <div class="comment">
+
+                        <div class="comment z-depth-1" style="border-radius: 10px; padding: 1em;">
                             <div class="date">
                                 {{ comment.created_date }}
                                 {% if not comment.approved_comment %}
@@ -45,19 +52,24 @@
                                         <a class="btn btn-default" href="{% url 'comment_approve' pk=comment.pk %}"> <i class="material-icons prefix">done</i></a>
                                     </div>
                                 {% endif %}
-                                <strong> <span class="flow-text blue lighten-5">{{ comment.author }}</span></strong>
+
+                                <strong> <span class="blue lighten-5">by {{ comment.author }}</span></strong>
+
                                 <p>{{ comment.text|linebreaks }}</p>
+
                             </div>
                         </div>
+
                     {% endif %}
 
-                    <div class="divider black"></div>
+                    {% comment %} <div class="divider black"></div> {% endcomment %}
+
                 {% empty %}
                     <p>No comments here yet :(</p>
                 {% endfor %}
 
                 <div class="col s4 center offset-s4">
-                    <a class="white-text waves-effect waves-light btn tooltipped" data-position="left" data-tooltip="Añadir comentario" href="{% url 'add_comment_to_post' pk=post.pk %}"><i class="material-icons prefix">insert_comment</i></a>
+                    <a class="white-text waves-effect waves-light btn" href="{% url 'add_comment_to_post' pk=post.pk %}">Escribe un comentario<i class="material-icons right">insert_comment</i></a>
                 </div>
                 
 
