@@ -71,13 +71,13 @@
     {% else %}
 
         <div class="fixed-action-btn">
-            <a class="btn btn-floating btn-large dropdown-trigger right dropdown-button" data-target='dropdown1'> <!--  data-activates='dropdown1'-->
+            <a class="btn btn-floating btn-large">
                 <i class="large material-icons right">account_box</i>
             </a>
 
             <ul>
                 <li>
-                    <a class="btn-large btn-floating waves-effect waves-light light-blue darken-2 tooltipped" data-tooltip="Iniciar sesión" href="{% url 'login' %}">
+                    <a class="btn-large btn-floating waves-effect waves-light light-blue darken-2 tooltipped" data-position="left" data-tooltip="Iniciar sesión" href="{% url 'login' %}">
                         <i class="material-icons">account_circle</i>
                     </a>
                 </li>

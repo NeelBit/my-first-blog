@@ -12,8 +12,11 @@
                     <p> Sin fecha de publicación :( </p>
                 </div>
                 
-                <div class="col s6 center">
-                    <a class="btn waves-effect tooltipped" data-tooltip="Publicar" href="{% url 'post_publish' pk=post.pk %}">Publish<i class="material-icons prefix left">publish</i></a>
+                <div class="col s6">
+                    <div class="right">
+                        <a class="btn waves-effect waves-light light-blue darken-2 tooltipped" data-tooltip="Publicar" href="{% url 'post_publish' pk=post.pk %}">Publish<i class="material-icons prefix left">publish</i></a>
+                    </div>
+                    
                 </div>
                 
             {% endif %}
