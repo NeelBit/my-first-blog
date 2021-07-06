@@ -26,14 +26,10 @@
         {{ form.username|materializecss:'s12, icon=person_pin'}}
         {{ form.password|materializecss:'s12, icon=security'}}
 
-
-
-
         {% comment %} <div class="col s4 offset-s4"> {% endcomment %}
             <button class="btn_enviar btn waves-effect waves-light" type="submit">Iniciar sesión<i class="material-icons prefix right">send</i> </button>
         {% comment %} </div> {% endcomment %}
         
-
         {% comment %} <input type="submit" value="login" /> {% endcomment %}
         <input type="hidden" name="next" value="{{ next }}" />
     </form>
