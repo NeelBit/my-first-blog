@@ -1,19 +1,29 @@
 {% extends 'blog/base.html' %}
+{% load materializecss %}
+
+{%block title%} Crear comentario {% endblock %}
 
 {% block content %}
-    <h1 class="light-blue-text text-darken-4"> <span class="z-depth-1" style="border-radius: 10px">New comment</span></h1>
-    <form method="POST" class="post-form">{% csrf_token %}
 
-        <table class="flow-text light-blue-text text-darken-4 highlight">
+    <h2 class="light-blue-text text-darken-4"> <span class="z-depth-1" style="border-radius: 10px">New comment</span></h2>
+    
+    <form method="POST" class="formulario flow-text light-blue-text text-darken-4 white">{% csrf_token %}
+
+        <div class="flow-text light-blue-text text-darken-4" >
             
-            {{ form.as_table}}
+            {% comment %} {{ form.as_table}} {% endcomment %}
 
-        </table>
+            {% comment %} {{ form|materializecss}} {% endcomment %}
+
+            {{ form.author|materializecss:'s12, icon=person' }}
+            {{ form.text|materializecss:'s12, icon=title' }}
+
+        </div>
         {% comment %} {{ form.as_p }} {% endcomment %}
 
-        <div class="div col s4 offset-s4 center">
-            <button type="submit" class="save btn btn-default">Send <i class="material-icons prefix right">send</i> </button>
-        </div>
+        {% comment %} <div class="div col s4 offset-s4 center"> {% endcomment %}
+            <button type="submit" class="btn_enviar btn">Send <i class="material-icons prefix right">send</i> </button>
+        {% comment %} </div> {% endcomment %}
         
     </form>
 {% endblock %}

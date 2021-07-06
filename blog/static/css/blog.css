@@ -1,29 +1,34 @@
-label{
+/* label{
     margin: 5px 5px;
     color: black;
     background-color: transparent;
     font-size: 2rem;
-}
+} */
 
-#id_title, #id_text{
+/* #id_title, #id_text{
     background-color: whitesmoke;
     color: black;
     border-radius: 10px;
 
-}
+} */
 
-#id_text{
+/* #id_text{
     height: 300px;
-}
+} */
 
-#formulario{
+.formulario{
     border: 2px black solid;
     border-radius: 10px;
 }
 
-#btn_enviar{
+.btn_enviar{
     display: block;
     margin: 0px auto;
     width: 30%;
     border-radius: 10px;
+}
+
+#id_author{
+    background-color: black;
+    color: red;
 }

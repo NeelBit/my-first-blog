@@ -1,20 +1,30 @@
 {% extends 'blog/base.html' %}
+{% load materializecss %}
 
-    {% block content %}
+{%block title%} Crear post {% endblock %}
 
-        <h2 class="light-blue-text text-darken-4" id="titulo_new_post"> <span class="z-depth-1" style="border-radius: 10px">Crear/editar nuevo post</span></h2>
+{% block content %}
 
-        <form id="formulario" method="POST" style="border-radius: 10px;" class="flow-text light-blue-text text-darken-4"> {% csrf_token %}
-            <table class="flow-text light-blue-text text-darken-4 highlight">
-            
-                {{ form.as_table}}
-
-            </table>
-
-            <button id="btn_enviar" class="btn waves-effect center-align" type="submit" name="enviar">Enviar
-                <i class="material-icons right">send</i>
-            </button>
-
-        </form>
+    <h2 class="light-blue-text text-darken-4" id="titulo_new_post"> <span class="z-depth-1" style="border-radius: 10px">Crear/editar nuevo post</span></h2>
     
-    {% endblock %}
+    <form method="POST" class="formulario flow-text light-blue-text text-darken-4 white"> {% csrf_token %}
+        
+        <div class="flow-text light-blue-text text-darken-4">
+        
+            {% comment %} {{ form.as_table}} {% endcomment %}
+
+            {% comment %} {{ form|materializecss }} {% endcomment %}
+
+            {{ form.title|materializecss:'s12, icon=title' }}
+            {{ form.text|materializecss:'s12, icon=textsms' }}
+
+
+        </div>
+
+        <button class="btn_enviar btn waves-effect center-align" type="submit" name="enviar">Enviar
+            <i class="material-icons right">send</i>
+        </button>
+
+    </form>
+
+{% endblock %}
